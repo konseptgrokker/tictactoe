@@ -5,7 +5,7 @@ def getboard(matrix):
     for row_index, row in enumerate(matrix):
         # Add a row
         for slot_index, slot in enumerate(row):
-            # Add X's and O's aaccording to matrix
+            # Add X or O according to matrix
             board += (" " * 5 if slot == 0 else
                       ("  O  " if slot == 1 else
                        "  X  "))

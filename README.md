@@ -1,3 +1,3 @@
 # tictactoe
 
-Play the game of tic-tac-toe with a friend in the terminal!
+Play a game of tic-tac-toe with a friend using python in the terminal!

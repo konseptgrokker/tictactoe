@@ -6,7 +6,7 @@ def draw_board(matrix):
         # Add a row
         for slot_index, slot in enumerate(row):
             # Add X's and O's according to matrix
-            board += (" " * 5 if slot == None else
+            board += (" " * 5 if slot == 0 else
                       ("  x  " if slot == 1 else
                        "  o  "))
             # Add veritcal line, except after the last slot (slot 2)
@@ -21,7 +21,7 @@ def draw_board(matrix):
 def make_move(matrix, piece, x, y):
     # In matrices the y-axis goes down, so we subtract it from the height
     # Subtract 1 from x to start from 1 and not 0
-    if matrix[3 - y][x - 1] == None:
+    if matrix[3 - y][x - 1] == 0:
         matrix[3 - y][x - 1] = piece
     return matrix
 
@@ -54,7 +54,7 @@ def has_won(matrix):
 
 if __name__ == "__main__":
     print(has_won([
-        [2, None, 1],
-        [2, 1, None],
+        [2, 0, 1],
+        [2, 1, 0],
         [1, 1, 2]
     ]))

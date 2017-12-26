@@ -18,11 +18,11 @@ def draw_board(matrix):
     return board
 
 
-def make_move(matrix, piece, x, y):
+def make_move(matrix, piece, x_pos, y_pos):
     # In matrices the y-axis goes down, so we subtract it from the height
     # Subtract 1 from x to start from 1 and not 0
-    if matrix[3 - y][x - 1] == 0:
-        matrix[3 - y][x - 1] = piece
+    if matrix[3 - y_pos][x_pos - 1] == 0:
+        matrix[3 - y_pos][x_pos - 1] = piece
     return matrix
 
 def has_won(matrix):

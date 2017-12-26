@@ -26,18 +26,13 @@ def make_move(matrix, piece, x_pos, y_pos):
     return matrix
 
 def has_won(matrix):
-    # Check the rows
-    for row in matrix:
-        if row == [1, 1, 1]:
+    # Check the rows and columns
+    # Matrix is a list of all rows, list(map(list, zip(*matrix))) is a list of all columns
+    # We add them to first check rows, then check columns, in the same loop
+    for row_or_column in matrix + list(map(list, zip(*matrix))):
+        if row_or_column == [1, 1, 1]:
             return 1
-        if row == [2, 2, 2]:
-            return 2
-    # Check the columns (Iterate over transpose matrix)
-    for column in zip(*matrix):
-        # zip turns the lists into tuples
-        if column == (1, 1, 1):
-            return 1
-        if column == (2, 2, 2):
+        if row_or_column == [2, 2, 2]:
             return 2
     # Check the diagonals
     if ((matrix[0][0] == 1 and matrix[2][2] == 1) or \
@@ -48,13 +43,15 @@ def has_won(matrix):
     (matrix[0][2] == 2 and matrix[2][0] == 2)) \
       and matrix[1][1] == 2:
         return 2
+    # If nobody won
+    return 0
 
-
-
+def is_full(matrix):
+    return not any([(0 in i) for i in matrix])
 
 if __name__ == "__main__":
-    print(has_won([
-        [2, 0, 1],
-        [2, 1, 0],
-        [1, 1, 2]
-    ]))
+    m = [
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 0]]
+    print(is_full(m))

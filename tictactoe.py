@@ -47,11 +47,14 @@ def has_won(matrix):
     return 0
 
 def is_full(matrix):
-    return not any([(0 in i) for i in matrix])
+    return not any((0 in i) for i in matrix)
 
 if __name__ == "__main__":
-    m = [
-        [1, 1, 1],
-        [1, 1, 1],
-        [1, 1, 0]]
-    print(is_full(m))
+
+    round_count = 0
+    play = True
+    while play:
+        p1_name = input("Player 1, what is your name?")
+        p2_name = input("Player 2, what is your name?")
+
+
